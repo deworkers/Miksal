@@ -30,7 +30,7 @@ $(document).ready(function() {
     });
 
 
-    var mainSlider = new Swiper('.catalog-slider', {
+    var catalogSlider = new Swiper('.catalog-slider', {
     	slidesPerView: 1,
     	spaceBetween: 0,
         loop: false,
@@ -40,14 +40,20 @@ $(document).ready(function() {
         paginationClickable: true
     }); 
 
-    $('.panel-one').on('click', function() {
+    $('.panel-one').on('click', function(event) {
+    	//event.stoppropagation();
     	if ( !$(this).hasClass('open') ) {
     		$('.panel-one').removeClass('open');
     		$(this).toggleClass('open');
-    		$('.panel-overlay').fadeToggle();
+    		$('.panel-overlay').fadeIn();
     	} else {
 			$('.panel-one').removeClass('open');
+			$('.panel-overlay').fadeOut();
     	}
-    	
     }); 
+
+    catalogSlider.on('slideChangeStart', function () {
+    	$('.panel-one').removeClass('open');
+    	$('.panel-overlay').fadeOut();
+	});
 });
