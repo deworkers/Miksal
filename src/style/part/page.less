@@ -622,3 +622,145 @@ body {
 	left: 0;
 	background: rgba(0, 0, 0, 0.5);
 }
+
+.panel-slider__title {
+	font-size: 13px;
+	font-weight: 700;
+	margin-bottom: 10px;
+}
+
+
+.panel-slider,
+.panel-slider-2 {
+	overflow: hidden;
+	max-width: 900px;
+
+	.swiper-slide {
+
+	}
+}
+
+.panel-slide__title {
+	font-size: 13px;
+	margin-top: 5px;
+}
+
+.panel-close {
+	position: absolute;
+	right: 30px;
+	top: 20px;
+	font-size: 11px;
+	font-weight: 300;
+
+	&:after {
+		content: "";
+		display: inline-block;
+		vertical-align: middle;
+		.sprite(@close-grey);
+		transform: scale(0.4);
+		margin-top: -1px;
+	}
+}
+
+.panel-slider-next {
+	position: absolute;
+	z-index: 10;
+		background-image: none;
+		width: 60px;
+		height: 60px;
+		transition: all 0.2s;
+		right: 30px;
+		top: auto;
+		bottom: 30px;
+		border: 1px solid #b6c0cc;
+
+		&:after {
+			content: "";
+			.sprite(@arrow-dark);
+			display: block;
+			position: absolute;
+			top: 19px;
+    		left: 26px;
+		}
+
+		&:hover {
+			background: #fff;
+			&:after {
+				.sprite(@arrow-dark);
+				transform: scale(1);
+				top: 19px;
+    			left: 26px;
+			}
+		}
+}
+
+.panel-slider-prev {
+	position: absolute;
+	z-index: 10;
+		background-image: none;
+		width: 60px;
+		height: 60px;
+		transition: all 0.2s;
+		left: auto;
+		right: 90px;
+		top: auto;
+		bottom: 30px;
+		border: 1px solid #b6c0cc;
+
+		&:after {
+			content: "";
+			.sprite(@arrow-dark);
+			transform: rotate(180deg);
+			display: block;
+			position: absolute;
+			top: 19px;
+    		left: 26px;
+		}
+
+		&:hover {
+			background: #fff;
+			&:after {
+				.sprite(@arrow-dark);
+				transform: scale(1) rotate(180deg);
+				top: 19px;
+    			left: 26px;
+			}
+		}
+}
+
+.furniture-slider {
+	overflow: hidden;
+	max-width: 900px;
+
+	.swiper-slide {
+		img {
+			border: 2px solid #bac4cf;
+			margin-bottom: 10px;
+			margin: 2px;
+		}
+	}
+}
+
+.furniture__title {
+	font-size: 15px;
+	color: #000;
+}
+
+.furniture__subtitle {
+	font-size: 13px;
+	font-weight: 300;
+	margin-bottom: 10px;
+}
+
+.furniture__list {
+	font-size: 13px;
+	font-weight: 300;
+	padding-left: 20px;
+	list-style: disc;
+}
+
+.parametrs {
+	.slide-bottom__price {
+		display: none;
+	}
+}
