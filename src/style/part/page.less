@@ -508,7 +508,7 @@ body {
 	bottom: 100%;
 	left: 0;
 	width: 100%;
-	padding: 30px 40px;
+	padding: 30px 40px 30px 40px;
 	display: none;
 }
 
@@ -527,6 +527,8 @@ body {
 	background-image: url(../tmp/interier.jpg);
 	background-size: cover;
 }
+
+
 
 .interier-counter {
 	i {
@@ -629,15 +631,34 @@ body {
 	margin-bottom: 10px;
 }
 
+.panel-slider-wrap {
+	overflow: hidden;
+	width: 100%;
+	max-width: 900px;
+}
+
+.slider-inn {
+	width: 10000px;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+
+.panel-slider-inn {
+	display: inline-block;
+	width: 360px;
+	vertical-align: top;
+}
 
 .panel-slider,
 .panel-slider-2 {
-	overflow: hidden;
-	max-width: 900px;
+	display: inline-block;
+}
 
-	.swiper-slide {
-
-	}
+.material-one {
+	float: left;
+	width: 150px;
+	margin: 0 30px 20px 0;
 }
 
 .panel-slide__title {

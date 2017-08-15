@@ -60,8 +60,8 @@ $(document).ready(function() {
     		$('.panel-one').removeClass('open');
     		$(this).toggleClass('open');
     		$('.panel-overlay').fadeIn();
-    		panelSlider.update();
-    		panelSlider2.update();
+    		//panelSlider.update();
+    		//panelSlider2.update();
     		furniture.update();
     	}
     }); 
@@ -76,12 +76,9 @@ $(document).ready(function() {
     	return false;
     });
 
-    /*catalogSlider.on('slideChangeStart', function () {
-    	$('.panel-one').removeClass('open');
-    	$('.panel-overlay').fadeOut();
-	});*/
+    
 
-	var panelSlider = new Swiper('.panel-slider', {
+	/*var panelSlider = new Swiper('.panel-slider', {
     	slidesPerView: 5,
     	spaceBetween: 40,
         loop: false,
@@ -95,7 +92,7 @@ $(document).ready(function() {
         loop: false,
     	nextButton: '.panel-slider-next',
         prevButton: '.panel-slider-prev',
-    });
+    });*/
 
     var furniture = new Swiper('.furniture-slider', {
     	slidesPerView: 5,
