@@ -55,14 +55,13 @@ $(document).ready(function() {
 
 
     $('.panel-one').on('click', function(event) {
-    	//event.stoppropagation();
     	if ( !$(this).hasClass('open') ) {
     		$('.panel-one').removeClass('open');
     		$(this).toggleClass('open');
     		$('.panel-overlay').fadeIn();
-    		//panelSlider.update();
-    		//panelSlider2.update();
     		furniture.update();
+    		gallery.update();
+    		gallery2.update();
     	}
     }); 
 
@@ -76,29 +75,63 @@ $(document).ready(function() {
     	return false;
     });
 
-    
-
-	/*var panelSlider = new Swiper('.panel-slider', {
-    	slidesPerView: 5,
-    	spaceBetween: 40,
-        loop: false,
-    	nextButton: '.panel-slider-next',
-        prevButton: '.panel-slider-prev',
-    });
-
-    var panelSlider2 = new Swiper('.panel-slider-2', {
-    	slidesPerView: 5,
-    	spaceBetween: 40,
-        loop: false,
-    	nextButton: '.panel-slider-next',
-        prevButton: '.panel-slider-prev',
-    });*/
-
     var furniture = new Swiper('.furniture-slider', {
     	slidesPerView: 5,
     	spaceBetween: 40,
         loop: false,
-    	nextButton: '.panel-slider-next',
-        prevButton: '.panel-slider-prev',
+    	nextButton: '.panel-carusel-next',
+        prevButton: '.panel-carusel-prev',
+    });
+
+    var gallery = new Swiper('.gallery', {
+    	slidesPerView: 'auto',
+    	spaceBetween: 10,
+        loop: false,
+    	nextButton: '.panel-carusel-next',
+        prevButton: '.panel-carusel-prev',
+    });
+
+    var gallery2 = new Swiper('.gallery-2', {
+    	slidesPerView: 'auto',
+    	spaceBetween: 10,
+        loop: false,
+    	nextButton: '.panel-carusel-next',
+        prevButton: '.panel-carusel-prev',
+    });
+
+
+
+    
+
+    $('.panel-slider-next').on('click', function() {
+    	var box = $(this).parents('.panel-inn').find('.slider-inn');
+	    var deltaFunc = function() {
+	    	var delta = 0;
+	    	box.find('.panel-slider').each(function() {
+		    	delta =+ $(this).width();
+		    });
+		    return delta;
+	    }
+
+	    delta = deltaFunc() - 360;
+	    right = Math.abs( box.position().left );
+	    console.log(right);
+	    if ( right < delta ) {
+	    	box.css('right', right + 180 + 'px');
+	    }
+    	
+    });
+
+    $('.panel-slider-prev').on('click', function() {
+    	var box = $(this).parents('.panel-inn').find('.slider-inn');
+
+    	right = Math.abs( box.position().left );
+    	console.log(right);
+	    if ( right >= 180 ) {
+	    	box.css('right', right - 180 + 'px');
+	    } else {
+	    	box.css('right', '0px');
+	    }
+    	
     });
 });

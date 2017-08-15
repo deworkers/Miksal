@@ -642,6 +642,8 @@ body {
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-start;
+	right: 0;
+	transition: all 0.3s;
 }
 
 .panel-slider-inn {
@@ -683,7 +685,25 @@ body {
 	}
 }
 
-.panel-slider-next {
+.gallery,
+.gallery-2 {
+	overflow: hidden;
+	
+	.swiper-slide {
+		height: 350px;
+		width: auto;
+
+		img {
+			    width: auto!important;
+    			height: 100%;
+		}
+	}
+}
+
+
+
+.panel-slider-next,
+.panel-carusel-next {
 	position: absolute;
 	z-index: 10;
 		background-image: none;
@@ -715,7 +735,8 @@ body {
 		}
 }
 
-.panel-slider-prev {
+.panel-slider-prev,
+.panel-carusel-prev {
 	position: absolute;
 	z-index: 10;
 		background-image: none;
