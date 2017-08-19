@@ -9,6 +9,14 @@ $(document).ready(function() {
         paginationClickable: true
     });
 
+    var listSlider = new Swiper('.list-slider', {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        loop: true,
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+    });
+
     if ( $('.main-slider').length > 0 ) {
 	    if ( $(window).width() <= 768 ) {
 		    mainSlider.on('slideChangeStart', function () {
@@ -84,11 +92,13 @@ $(document).ready(function() {
     });
 
     var gallery = new Swiper('.gallery', {
-    	slidesPerView: 'auto',
-    	spaceBetween: 10,
+        slidesPerView: 'auto',
+        spaceBetween: 10,
         loop: false,
-    	nextButton: '.panel-carusel-next',
+        nextButton: '.panel-carusel-next',
         prevButton: '.panel-carusel-prev',
+        pagination: '.gallery-pagination',
+        paginationClickable: true
     });
 
     var gallery2 = new Swiper('.gallery-2', {
