@@ -97,8 +97,6 @@ $(document).ready(function() {
         loop: false,
         nextButton: '.panel-carusel-next',
         prevButton: '.panel-carusel-prev',
-        pagination: '.gallery-pagination',
-        paginationClickable: true
     });
 
     var gallery2 = new Swiper('.gallery-2', {
@@ -107,6 +105,8 @@ $(document).ready(function() {
         loop: false,
     	nextButton: '.panel-carusel-next',
         prevButton: '.panel-carusel-prev',
+        pagination: '.gallery-pagination',
+        paginationClickable: true
     });
 
 
