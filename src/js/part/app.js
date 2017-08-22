@@ -27,7 +27,6 @@ $(document).ready(function() {
 	    }
     }
 
-
     $('.slider-info').on('click', function() {
     	$('.parametrs').animate({'bottom':'0'}, 300);
     	$('.catalog-slide__title').animate({'bottom':'180px'}, 300);
@@ -50,98 +49,141 @@ $(document).ready(function() {
     	$('.main-slider .swiper-pagination').delay(300).fadeIn();
     });*/
 
-    /*var catalogSlider = new Swiper('.catalog-slider', {
+    var catalogSlider = new Swiper('.catalog-slider', {
     	slidesPerView: 1,
     	spaceBetween: 0,
         loop: false,
     	nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',
     	pagination: '.swiper-pagination',
-        paginationClickable: true
-    }); */
+        paginationClickable: true,
+        touchRatio: 0,
+        breakpoints: {
+        	760: {
+		      touchRatio: 1
+		    }
+        }
+    });
 
 
+    catalogSlider.on('slideChangeEnd', function () {
+    	var thisSlide = $('.catalog-slider .catalog-slide.swiper-slide-active');
+	    if ( thisSlide.find('div').length == 0 ) {
+	    	console.log('loading');
+	    	var slideId = thisSlide.data('id');
+	    	$.ajax({
+	            type: 'POST',
+	            url: '/ajax/slide-load.php',
+	            data: {'slide': slideId}, // передача ID слайда
+	            success: function(data) {
+	                thisSlide.append(data);
+	                panelInit();
+	            }
+	        });
+	    }
+	});
 
-    $('.panel-one').on('click', function(event) {
-    	if ( !$(this).hasClass('open') ) {
-    		$('.panel-one').removeClass('open');
-    		$(this).toggleClass('open');
-    		$('.panel-overlay').fadeIn();
-    		furniture.update();
-    		gallery.update();
-    		gallery2.update();
-    	}
-    }); 
+	catalogSlider.on('slideChangeStart', function() {
+		$('.panel-one').removeClass('open');
+	    $('.panel-overlay').fadeOut();
+	});
 
-    if ( $('.catalog-slider').length > 0 ) {
-    	
+
+    var panelInit = function() {
+	    $('.panel-one').on('click', function(event) {
+	    	if ( !$(this).hasClass('open') ) {
+	    		$('.panel-one').removeClass('open');
+	    		$(this).toggleClass('open');
+	    		$('.panel-overlay').fadeIn();
+
+			    var furniture = new Swiper('.furniture-slider', {
+			    	slidesPerView: 5,
+			    	spaceBetween: 40,
+			        loop: false,
+			    	nextButton: '.panel-carusel-next',
+			        prevButton: '.panel-carusel-prev',
+			    });
+
+			    var gallery = new Swiper('.gallery', {
+			        slidesPerView: 'auto',
+			        spaceBetween: 10,
+			        loop: false,
+			        nextButton: '.panel-carusel-next',
+			        prevButton: '.panel-carusel-prev',
+			        pagination: '.gallery-pagination',
+			        paginationClickable: true,
+			    });
+
+			    var gallery2 = new Swiper('.gallery-2', {
+			    	slidesPerView: 'auto',
+			    	spaceBetween: 10,
+			        loop: false,
+			    	nextButton: '.panel-carusel-next',
+			        prevButton: '.panel-carusel-prev',
+			    });
+	    	}
+	    }); 
+
+	    $('.panel-close').on('click', function() {
+	    	$(this).parents('.panel-one').removeClass('open');
+	    	$('.panel-overlay').fadeOut();
+	    	return false;
+	    });
+
+
+	    $('.panel-slider-next').on('click', function() {
+	    	var box = $(this).parents('.panel-inn').find('.slider-inn');
+		    var deltaFunc = function() {
+		    	var delta = 0;
+		    	box.find('.panel-slider').each(function() {
+			    	delta =+ $(this).width();
+			    });
+			    return delta;
+		    }
+
+		    delta = deltaFunc() - 360;
+		    right = Math.abs( box.position().left );
+		    console.log(right);
+		    if ( right < delta ) {
+		    	box.css('right', right + 180 + 'px');
+		    }
+	    	
+	    });
+
+	    $('.panel-slider-prev').on('click', function() {
+	    	var box = $(this).parents('.panel-inn').find('.slider-inn');
+
+	    	right = Math.abs( box.position().left );
+	    	console.log(right);
+		    if ( right >= 180 ) {
+		    	box.css('right', right - 180 + 'px');
+		    } else {
+		    	box.css('right', '0px');
+		    }
+	    	
+	    });
+
+	    if ( $('.main-slider').length > 0 ) {
+		    if ( $(window).width() <= 768 ) {
+			    mainSlider.on('slideChangeStart', function () {
+				    $('.slide-bottom').animate({'bottom':'-100%'}, 300);
+			    	$('.main-slide-descr').animate({'bottom':'80px'}, 300);
+			    	$('.main-slider .swiper-pagination').delay(300).fadeIn();
+				});
+		    }
+	    }
+
+	    $('.slider-info').on('click', function() {
+	    	$('.parametrs').animate({'bottom':'0'}, 300);
+	    	$('.catalog-slide__title').animate({'bottom':'180px'}, 300);
+	    });
+
+	    $('.info-close').on('click', function() {
+	    	$('.parametrs').animate({'bottom':'-100%'}, 300);
+	    	$('.catalog-slide__title').animate({'bottom':'80px'}, 300);
+	    });
     }
 
-    $('.panel-close').on('click', function() {
-    	$(this).parents('.panel-one').removeClass('open');
-    	$('.panel-overlay').fadeOut();
-    	return false;
-    });
+    panelInit();
 
-    var furniture = new Swiper('.furniture-slider', {
-    	slidesPerView: 5,
-    	spaceBetween: 40,
-        loop: false,
-    	nextButton: '.panel-carusel-next',
-        prevButton: '.panel-carusel-prev',
-    });
-
-    var gallery = new Swiper('.gallery', {
-        slidesPerView: 'auto',
-        spaceBetween: 10,
-        loop: false,
-        nextButton: '.panel-carusel-next',
-        prevButton: '.panel-carusel-prev',
-    });
-
-    var gallery2 = new Swiper('.gallery-2', {
-    	slidesPerView: 'auto',
-    	spaceBetween: 10,
-        loop: false,
-    	nextButton: '.panel-carusel-next',
-        prevButton: '.panel-carusel-prev',
-        pagination: '.gallery-pagination',
-        paginationClickable: true
-    });
-
-
-
-    
-
-    $('.panel-slider-next').on('click', function() {
-    	var box = $(this).parents('.panel-inn').find('.slider-inn');
-	    var deltaFunc = function() {
-	    	var delta = 0;
-	    	box.find('.panel-slider').each(function() {
-		    	delta =+ $(this).width();
-		    });
-		    return delta;
-	    }
-
-	    delta = deltaFunc() - 360;
-	    right = Math.abs( box.position().left );
-	    console.log(right);
-	    if ( right < delta ) {
-	    	box.css('right', right + 180 + 'px');
-	    }
-    	
-    });
-
-    $('.panel-slider-prev').on('click', function() {
-    	var box = $(this).parents('.panel-inn').find('.slider-inn');
-
-    	right = Math.abs( box.position().left );
-    	console.log(right);
-	    if ( right >= 180 ) {
-	    	box.css('right', right - 180 + 'px');
-	    } else {
-	    	box.css('right', '0px');
-	    }
-    	
-    });
 });
