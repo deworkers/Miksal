@@ -103,10 +103,22 @@ $(document).ready(function() {
         paginationClickable: true
     });
 
-    var listSlider = new Swiper('.list-slider', {
-        slidesPerView: 1,
-        spaceBetween: 0,
+    var typeSlider = new Swiper('.type-slider', {
+    	slidesPerView: 1,
+    	spaceBetween: 0,
         loop: true,
+    	nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+    	pagination: '.swiper-pagination',
+        paginationClickable: true
+    });
+
+    var listSlider = new Swiper('.list-slider', {
+        slidesPerView: 2,
+        slidesPerColumn: 2,
+        spaceBetween: 10,
+        loop: false,
+        slidesOffsetBefore: 10,
         nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',
     });
@@ -160,27 +172,30 @@ $(document).ready(function() {
     });
 
 
-    catalogSlider.on('slideChangeEnd', function () {
-    	var thisSlide = $('.catalog-slider .catalog-slide.swiper-slide-active');
-	    if ( thisSlide.find('div').length == 0 ) {
-	    	console.log('loading');
-	    	var slideId = thisSlide.data('id');
-	    	$.ajax({
-	            type: 'POST',
-	            url: '/ajax/slide-load.php',
-	            data: {'slide': slideId}, // передача ID слайда
-	            success: function(data) {
-	                thisSlide.append(data);
-	                panelInit();
-	            }
-	        });
-	    }
-	});
 
-	catalogSlider.on('slideChangeStart', function() {
-		$('.panel-one').removeClass('open');
-	    $('.panel-overlay').fadeOut();
-	});
+    if ( $('.catalog-slider').length > 0 ) {
+	    catalogSlider.on('slideChangeEnd', function () {
+	    	var thisSlide = $('.catalog-slider .catalog-slide.swiper-slide-active');
+		    if ( thisSlide.find('div').length == 0 ) {
+		    	console.log('loading');
+		    	var slideId = thisSlide.data('id');
+		    	$.ajax({
+		            type: 'POST',
+		            url: '/ajax/slide-load.php',
+		            data: {'slide': slideId}, // передача ID слайда
+		            success: function(data) {
+		                thisSlide.append(data);
+		                panelInit();
+		            }
+		        });
+		    }
+		});
+
+		catalogSlider.on('slideChangeStart', function() {
+			$('.panel-one').removeClass('open');
+		    $('.panel-overlay').fadeOut();
+		});
+    }
 
 
     var panelInit = function() {
