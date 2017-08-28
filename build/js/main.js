@@ -106,12 +106,20 @@ $(document).ready(function() {
     var typeSlider = new Swiper('.type-slider', {
     	slidesPerView: 1,
     	spaceBetween: 0,
-        loop: true,
+        loop: false,
+        initialSlide: 1,
     	nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',
     	pagination: '.swiper-pagination',
         paginationClickable: true
     });
+
+    if ( $('.type-slider').length > 0 ) {
+	    typeSlider.on('slideChangeEnd', function () {
+	    	var url = $('.type-slider').find('.type-slide').eq(typeSlider.activeIndex).data('url');
+	    	$(location).attr('href',url);
+		});
+    }
 
     var listSlider = new Swiper('.list-slider', {
         slidesPerView: 2,
@@ -164,6 +172,7 @@ $(document).ready(function() {
     	pagination: '.swiper-pagination',
         paginationClickable: true,
         touchRatio: 0,
+        initialSlide: 1,
         breakpoints: {
         	760: {
 		      touchRatio: 1
@@ -175,20 +184,9 @@ $(document).ready(function() {
 
     if ( $('.catalog-slider').length > 0 ) {
 	    catalogSlider.on('slideChangeEnd', function () {
-	    	var thisSlide = $('.catalog-slider .catalog-slide.swiper-slide-active');
-		    if ( thisSlide.find('div').length == 0 ) {
-		    	console.log('loading');
-		    	var slideId = thisSlide.data('id');
-		    	$.ajax({
-		            type: 'POST',
-		            url: '/ajax/slide-load.php',
-		            data: {'slide': slideId}, // передача ID слайда
-		            success: function(data) {
-		                thisSlide.append(data);
-		                panelInit();
-		            }
-		        });
-		    }
+	    	console.log(catalogSlider.activeIndex);
+	    	var url = $('.catalog-slider').find('.catalog-slide').eq(catalogSlider.activeIndex).data('url');
+	    	$(location).attr('href',url);
 		});
 
 		catalogSlider.on('slideChangeStart', function() {
