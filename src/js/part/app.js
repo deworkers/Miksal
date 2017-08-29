@@ -35,6 +35,7 @@ $(document).ready(function() {
         slidesOffsetBefore: 10,
         nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',
+        pagination: '.swiper-pagination',
         breakpoints: {
             760: {
                 slidesPerView: 1,
@@ -63,7 +64,7 @@ $(document).ready(function() {
 
     $('.info-close').on('click', function() {
     	$('.parametrs').animate({'bottom':'-100%'}, 300);
-    	$('.catalog-slide__title').animate({'bottom':'80px'}, 300);
+    	$('.catalog-slide__title').animate({'bottom':'100px'}, 300);
     });
 
     /*$('.slider-info').on('click', function() {
@@ -203,15 +204,7 @@ $(document).ready(function() {
 		    }
 	    }
 
-	    $('.slider-info').on('click', function() {
-	    	$('.parametrs').animate({'bottom':'0'}, 300);
-	    	$('.catalog-slide__title').animate({'bottom':'180px'}, 300);
-	    });
-
-	    $('.info-close').on('click', function() {
-	    	$('.parametrs').animate({'bottom':'-100%'}, 300);
-	    	$('.catalog-slide__title').animate({'bottom':'80px'}, 300);
-	    });
+	    
     }
 
     panelInit();

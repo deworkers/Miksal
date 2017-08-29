@@ -90,11 +90,15 @@
 		}
 	}
 
+	.catalog-slide-inn {
+		padding: 0;
+	}
+
 	.parametrs {
-		position: absolute;
+		position: fixed;
 	    width: 100%;
 	    bottom: -100%;
-	    left: 0;
+	    //left: 0;
 	    background: #282c33;
     	padding: 15px 15px 45px 15px;
 	    color: #fff;
@@ -117,12 +121,12 @@
 	}
 
 	.catalog-slide__title {
-		position: absolute;
+		position: fixed;
 		text-align: center;
     	font-size: 24px;
 		width: 100%;
-	    left: 0;
-	    bottom: 80px;
+	    //left: 0;
+	    bottom: 100px;
 	    max-width: 100%;
 	    text-transform: uppercase;
 	}
@@ -172,6 +176,18 @@
 		.swiper-button-next {
 			display: none;
 		}
+
+		.swiper-pagination {
+			display: block;
+			bottom: 70px;
+		}
+
+		.swiper-pagination-bullet {
+			border-radius: 0;
+		    width: 26px;
+		    height: 2px;
+		    background-color: #fff;
+		}
 	}
 	
 	.type-slide-descr {
@@ -182,7 +198,7 @@
 	}
 
 	.type-slide__title {
-		text-align: center;
+		text-align: left;
     	font-size: 24px;
     	width: 100%;
 	}
@@ -194,7 +210,7 @@
 
 	.list-type {
 		width: ~'calc(100% - 40px)';
-		bottom: 80px;
+		bottom: 100px;
     	left: 20px;
 		a {
 			width: 47.5%;
@@ -208,7 +224,7 @@
 
 		a {
 			position: absolute;
-			bottom: 80px;
+			bottom: 100px;
 			left: 0;
 			text-align: center;
 			width: 100%;
