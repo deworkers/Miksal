@@ -163,6 +163,65 @@
 	}
 
 
+	.type-slider,
+	.list-slider {
+		.swiper-button-prev {
+			display: none;
+		}
+
+		.swiper-button-next {
+			display: none;
+		}
+	}
+	
+	.type-slide-descr {
+		position: relative;
+		bottom: auto;
+		left: auto;
+		padding: 100px 20px 0;
+	}
+
+	.type-slide__title {
+		text-align: center;
+    	font-size: 24px;
+    	width: 100%;
+	}
+
+	.type-slide__subtitle {
+		border-left: none;
+		padding: 0;
+	}
+
+	.list-type {
+		width: ~'calc(100% - 40px)';
+		bottom: 80px;
+    	left: 20px;
+		a {
+			width: 47.5%;
+			height: 80px;
+		}
+	}
+
+	.list-one {
+		height: 100%;
+		background-size: cover;
+
+		a {
+			position: absolute;
+			bottom: 80px;
+			left: 0;
+			text-align: center;
+			width: 100%;
+		}
+	}
+
+	.list-slider {
+		height: 100vh;
+	}
+
+	.list-slide {
+		height: 100%;
+	}
 }
 
 @media screen and (max-width: 480px) { // телефон

@@ -129,6 +129,15 @@ $(document).ready(function() {
         slidesOffsetBefore: 10,
         nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',
+        breakpoints: {
+            760: {
+                slidesPerView: 1,
+                slidesPerColumn: 1,
+                slidesOffsetBefore: 0,
+                spaceBetween: 0,
+            }
+        }
+
     });
 
     if ( $('.main-slider').length > 0 ) {
