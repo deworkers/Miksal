@@ -209,4 +209,8 @@ $(document).ready(function() {
 
     panelInit();
 
+    $('body, html').scroll(function() {
+        x = $(window).height();
+        $('body, html').height(x);
+    });
 });
