@@ -208,7 +208,7 @@ $(document).ready(function() {
 
     var panelInit = function() {
 	    $('.panel-one').on('click', function(event) {
-	    	if ( !$(this).hasClass('open') ) {
+	    	if ( !$(this).hasClass('open') && !$(this).hasClass('disabled') ) {
 	    		$('.panel-one').removeClass('open');
 	    		$(this).toggleClass('open');
 	    		$('.panel-overlay').fadeIn();
@@ -245,6 +245,7 @@ $(document).ready(function() {
 			        loop: false,
 			    	nextButton: '.panel-carusel-next',
 			        prevButton: '.panel-carusel-prev',
+			        pagination: '.gallery2-pagination',
 			    });
 	    	}
 	    }); 
@@ -255,39 +256,7 @@ $(document).ready(function() {
 	    	return false;
 	    });
 
-
-	    /*$('.panel-slider-next').on('click', function() {
-	    	var box = $(this).parents('.panel-inn').find('.slider-inn');
-		    var deltaFunc = function() {
-		    	var delta = 0;
-		    	box.find('.panel-slider').each(function() {
-			    	delta =+ $(this).width();
-			    });
-			    return delta;
-		    }
-
-		    delta = deltaFunc() - 360;
-		    right = Math.abs( box.position().left );
-		    console.log(right);
-		    if ( right < delta ) {
-		    	box.css('right', right + 180 + 'px');
-		    }
-	    	
-	    });
-
-	    $('.panel-slider-prev').on('click', function() {
-	    	var box = $(this).parents('.panel-inn').find('.slider-inn');
-
-	    	right = Math.abs( box.position().left );
-	    	console.log(right);
-		    if ( right >= 180 ) {
-		    	box.css('right', right - 180 + 'px');
-		    } else {
-		    	box.css('right', '0px');
-		    }
-	    	
-	    });*/
-
+    
 	    if ( $('.main-slider').length > 0 ) {
 		    if ( $(window).width() <= 768 ) {
 			    mainSlider.on('slideChangeStart', function () {
@@ -303,8 +272,11 @@ $(document).ready(function() {
 
     panelInit();
 
-    $('body, html').scroll(function() {
-        x = $(window).height();
-        $('body, html').height(x);
-    });
+    $(document).keydown(function(e) {
+	    if( e.keyCode === 27 ) {
+	        $('.panel-one').removeClass('open');
+	    	$('.panel-overlay').fadeOut();
+	    }
+	});
+
 });

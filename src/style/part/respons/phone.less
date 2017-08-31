@@ -145,9 +145,13 @@
 	}
 
 	.list-category {
-		display: none;
+		left: 20px;
+		width: ~'calc(100% - 40px)';
+		bottom: 100px;
 		a {
-
+			width: 49%;
+			height: 80px;
+			padding: 10px 20px;
 		}
 	}
 
@@ -215,19 +219,22 @@
 		a {
 			width: 47.5%;
 			height: 80px;
+
+			&:nth-child(2n) {
+				margin-right: 0;
+			}
 		}
 	}
 
 	.list-one {
 		height: 100%;
 		background-size: cover;
+		padding: 100px 20px 0 !important;
 
-		a {
-			position: absolute;
-			bottom: 100px;
-			left: 0;
-			text-align: center;
+		.list-slide__title {
+			display: block;
 			width: 100%;
+			
 		}
 	}
 

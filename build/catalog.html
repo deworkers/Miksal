@@ -58,7 +58,7 @@
     			</div>
     		</div>
     		<div class="order-right">
-    			<a class="order-button" href="#">
+    			<a class="order-button open-modal" href="#order">
     				ОФОРМИТЬ<br>ЗАКАЗ
     			</a>
     		</div>
@@ -190,7 +190,7 @@
     							<div class="panel-slider-prev"></div>
     						</div>
     					</li>
-    					<li class="panel-one">
+    					<li class="panel-one disabled">
     						<div class="panel-title">Варианты ЗАПОЛНЕНИЙ</div>
     						<div class="panel-inn">
     							<div class="panel-close">Закрыть ESC</div>
@@ -383,9 +383,7 @@
     					</li>
     					<li class="panel-one panel-one--interier">
     						<div class="panel-title">ИНТЕРЬЕРНЫЕ РЕШЕНИЯ
-    							<div class="interier-counter">
-    								<i></i><i></i><i></i><i></i>
-    							</div>
+    							<div class="gallery2-pagination"></div>
     						</div>
     						<div class="panel-inn">
     							<div class="panel-close">Закрыть ESC</div>
@@ -467,6 +465,24 @@
     			<a href="#">ДВЕРНЫЕ КОРОБКИ</a>
     			<a href="#">МЕБЕЛЬ</a>
     		</div>
+    	</div>
+    	<div class="modal " id="order">
+    		<a href="#" class="modal-close"></a>
+    		<div class="modal-title">Заказ звонка</div>
+    			<div class="modal-form">
+    				<form id="order-form" action="" >
+    					<div class="calc-line">
+    						<input type="text" name="name" placeholder="Имя">
+    					</div>
+    					<div class="calc-line">
+    						<input type="text" name="phone" placeholder="Телефон">
+    					</div>
+    					
+    					<div class="calc-line">
+    						<button type="submit" class="form-send">Отправить</button>
+    					</div>
+    				</form>
+    			</div>
     	</div>
     </div>
 </body>
