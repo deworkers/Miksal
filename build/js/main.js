@@ -141,7 +141,7 @@ $(document).ready(function() {
 
     });
 
-    if ( $('.main-slider').length > 0 ) {
+    /*if ( $('.main-slider').length > 0 ) {
 	    if ( $(window).width() <= 768 ) {
 		    mainSlider.on('slideChangeStart', function () {
 			    $('.slide-bottom').animate({'bottom':'-100%'}, 300);
@@ -149,29 +149,17 @@ $(document).ready(function() {
 		    	$('.main-slider .swiper-pagination').delay(300).fadeIn();
 			});
 	    }
-    }
+    }*/
 
     $('.slider-info').on('click', function() {
     	$('.parametrs').animate({'bottom':'0'}, 300);
-    	$('.catalog-slide__title').animate({'bottom':'180px'}, 300);
+    	$('.catalog-slide__title').animate({'bottom':'140px'}, 300);
     });
 
     $('.info-close').on('click', function() {
     	$('.parametrs').animate({'bottom':'-100%'}, 300);
     	$('.catalog-slide__title').animate({'bottom':'100px'}, 300);
     });
-
-    /*$('.slider-info').on('click', function() {
-    	$(this).parents('.main-slide ').find('.slide-bottom').animate({'bottom':'0'}, 300);
-    	$(this).parents('.main-slide ').find('.main-slide-descr').animate({'bottom':'260px'}, 300);
-    	$('.main-slider .swiper-pagination').hide();
-    });
-
-    $('.info-close').on('click', function() {
-    	$(this).parents('.main-slide ').find('.slide-bottom').animate({'bottom':'-100%'}, 300);
-    	$(this).parents('.main-slide ').find('.main-slide-descr').animate({'bottom':'80px'}, 300);
-    	$('.main-slider .swiper-pagination').delay(300).fadeIn();
-    });*/
 
     var catalogSlider = new Swiper('.catalog-slider', {
     	slidesPerView: 1,
@@ -255,18 +243,6 @@ $(document).ready(function() {
 	    	$('.panel-overlay').fadeOut();
 	    	return false;
 	    });
-
-    
-	    if ( $('.main-slider').length > 0 ) {
-		    if ( $(window).width() <= 768 ) {
-			    mainSlider.on('slideChangeStart', function () {
-				    $('.slide-bottom').animate({'bottom':'-100%'}, 300);
-			    	$('.main-slide-descr').animate({'bottom':'80px'}, 300);
-			    	$('.main-slider .swiper-pagination').delay(300).fadeIn();
-				});
-		    }
-	    }
-
 	    
     }
 
@@ -278,5 +254,40 @@ $(document).ready(function() {
 	    	$('.panel-overlay').fadeOut();
 	    }
 	});
+
+	$("#order-form").validate({
+        rules:{
+            name:{
+                required: true
+            },
+            phone:{
+                required: true,
+            },
+        },
+        messages:{
+            name:{
+                required: "Это поле обязательно для заполнения",
+            },
+            phone:{
+                required: "Это поле обязательно для заполнения",
+            },
+        },
+        submitHandler: function() {
+            $('.modal-form').html('<h2>Спасибо за заказ</h2>')
+        }
+    });
+
+
+
+    $("#order-form").submit(function() { //устанавливаем событие отправки для формы с id=form
+        var formData = $(this).serialize(); //собераем все данные из формы
+        $.ajax({
+            type: "POST", //Метод отправки
+            url: "/ajax/send.php", //путь до php фаила отправителя
+            data: formData
+        });
+    });
+
+    $('input[name="phone"]').mask("+7(999) 999-99-99",{placeholder:"_"});
 
 });
