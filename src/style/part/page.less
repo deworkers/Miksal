@@ -37,7 +37,7 @@ body {
 
 
 .head__phone {
-	font-size: 13px;
+	font-size: 16px;
 	color: #fff;
 	font-weight: 300;
 	margin-bottom: 10px;
@@ -52,6 +52,7 @@ body {
 		vertical-align: middle;
 		margin-left: 5px;
 		.sprite(@phone);
+		margin-top: -2px;
 	}
 }
 
@@ -117,11 +118,14 @@ body {
 		background-image: none;
 		width: 60px;
 		height: 60px;
-		border: 1px solid rgba(255, 255, 255, 0.2);
+		background: #00c6ff;
+		border: 1px solid;
+		border-color: rgba(255, 255, 255, 0.5);
 		transition: all 0.2s;
 		right: 30px;
 		top: auto;
-		bottom: 190px;
+		bottom: 50%;
+    	margin-bottom: -30px;
 
 		&:after {
 			content: "";
@@ -134,7 +138,7 @@ body {
 		}
 
 		&:hover {
-			background: #00c6ff;
+			background: #0ab1ff;
 			border-color: #00c6ff;
 		}
 	}
@@ -143,12 +147,14 @@ body {
 		background-image: none;
 		width: 60px;
 		height: 60px;
-		border: 1px solid rgba(255, 255, 255, 0.2);
+		background: #00c6ff;
+		border-color: rgba(255, 255, 255, 0.5);
 		transition: all 0.2s;
 		left: auto;
 		right: 90px;
 		top: auto;
-		bottom: 190px;
+		bottom: 50%;
+    	margin-bottom: -30px;
 
 		&:after {
 			content: "";
@@ -161,7 +167,7 @@ body {
 		}
 
 		&:hover {
-			background: #00c6ff;
+			background: #0ab1ff;
 			border-color: #00c6ff;
 		}
 	}
@@ -580,30 +586,28 @@ body {
 		background-image: none;
 		width: 60px;
 		height: 60px;
+		background: #00c6ff;
+		border: 1px solid;
+		border-color: rgba(255, 255, 255, 0.5);
 		transition: all 0.2s;
 		right: 30px;
 		top: auto;
-		bottom: 30px;
-		background: rgba(31, 37, 47, 0.5);
+		bottom: 50%;
+    	margin-bottom: -30px;
 
 		&:after {
 			content: "";
-			.sprite(@arrow-whire);
-			transform: rotate(180deg);
+			.sprite(@arrow);
+			transform: scale(0.5) rotate(180deg);
 			display: block;
 			position: absolute;
-			top: 19px;
-    		left: 26px;
+			top: 10px;
+			left: 20px;
 		}
 
 		&:hover {
-			background: #fff;
-			&:after {
-				.sprite(@arrow-dark);
-				transform: scale(1);
-				top: 19px;
-    			left: 26px;
-			}
+			background: #0ab1ff;
+			border-color: #00c6ff;
 		}
 	}
 
@@ -611,30 +615,28 @@ body {
 		background-image: none;
 		width: 60px;
 		height: 60px;
+		background: #00c6ff;
+		border-color: rgba(255, 255, 255, 0.5);
 		transition: all 0.2s;
 		left: auto;
 		right: 90px;
 		top: auto;
-		bottom: 30px;
-		background: rgba(31, 37, 47, 0.5);
+		bottom: 50%;
+    	margin-bottom: -30px;
 
 		&:after {
 			content: "";
-			.sprite(@arrow-whire);
+			.sprite(@arrow);
+			transform: scale(0.5);
 			display: block;
 			position: absolute;
-			top: 19px;
-    		left: 26px;
+			top: 10px;
+			left: 18px;
 		}
 
 		&:hover {
-			background: #fff;
-			&:after {
-				.sprite(@arrow-dark);
-				transform: scale(1) rotate(180deg);
-				top: 19px;
-    			left: 26px;
-			}
+			background: #0ab1ff;
+			border-color: #00c6ff;
 		}
 	}
 
@@ -892,18 +894,49 @@ body {
 	overflow: hidden;
 	width: 100%;
 
+	.swiper-button-next {
+		background-image: none;
+		width: 60px;
+		height: 60px;
+		background: #00c6ff;
+		border: 1px solid;
+		border-color: rgba(255, 255, 255, 0.5);
+		transition: all 0.2s;
+		right: 30px;
+		top: auto;
+		bottom: 50%;
+    	margin-bottom: -30px;
+
+		&:after {
+			content: "";
+			.sprite(@arrow);
+			transform: scale(0.5) rotate(180deg);
+			display: block;
+			position: absolute;
+			top: 10px;
+			left: 20px;
+		}
+
+		&:hover {
+			background: #0ab1ff;
+			border-color: #00c6ff;
+		}
+	}
+
 	.swiper-button-prev {
 		background-image: none;
-	    width: 60px;
-	    height: 60px;
-	    border: 1px solid rgba(255,255,255,.2);
-	    transition: all .2s;
-	    top: 50%;
-	    margin-top: -30px;
-	    left: auto !important;
-	    right: 89px;
-	    background: rgba(255, 255, 255, 0.1);
-	    &:after {
+		width: 60px;
+		height: 60px;
+		background: #00c6ff;
+		border-color: rgba(255, 255, 255, 0.5);
+		transition: all 0.2s;
+		left: auto;
+		right: 90px;
+		top: auto;
+		bottom: 50%;
+    	margin-bottom: -30px;
+
+		&:after {
 			content: "";
 			.sprite(@arrow);
 			transform: scale(0.5);
@@ -914,37 +947,9 @@ body {
 		}
 
 		&:hover {
-			background: #00c6ff;
+			background: #0ab1ff;
 			border-color: #00c6ff;
 		}
-
-	}
-
-	.swiper-button-next {
-		background-image: none;
-	    width: 60px;
-	    height: 60px;
-	    border: 1px solid rgba(255,255,255,.2);
-	    transition: all .2s;
-	    top: 50%;
-	    margin-top: -30px;
-	    right: 30px;
-	    background: rgba(255, 255, 255, 0.1);
-	    &:after {
-			content: "";
-			.sprite(@arrow);
-			transform: scale(0.5) rotate(180deg);
-			display: block;
-			position: absolute;
-			top: 10px;
-			left: 22px;
-		}
-
-		&:hover {
-			background: #00c6ff;
-			border-color: #00c6ff;
-		}
-
 	}
 
 	.swiper-pagination {
@@ -1037,12 +1042,14 @@ body {
 		background-image: none;
 		width: 60px;
 		height: 60px;
-		border: 1px solid rgba(255, 255, 255, 0.2);
+		background: #00c6ff;
+		border: 1px solid;
+		border-color: rgba(255, 255, 255, 0.5);
 		transition: all 0.2s;
 		right: 30px;
 		top: auto;
-		bottom: 300px;
-		background: rgba(255,255,255,.1);	
+		bottom: 50%;
+    	margin-bottom: -30px;
 
 		&:after {
 			content: "";
@@ -1055,7 +1062,7 @@ body {
 		}
 
 		&:hover {
-			background: #00c6ff;
+			background: #0ab1ff;
 			border-color: #00c6ff;
 		}
 	}
@@ -1064,13 +1071,14 @@ body {
 		background-image: none;
 		width: 60px;
 		height: 60px;
-		border: 1px solid rgba(255, 255, 255, 0.2);
+		background: #00c6ff;
+		border-color: rgba(255, 255, 255, 0.5);
 		transition: all 0.2s;
 		left: auto;
 		right: 90px;
 		top: auto;
-		bottom: 300px;
-		background: rgba(255,255,255,.1);	
+		bottom: 50%;
+    	margin-bottom: -30px;
 
 		&:after {
 			content: "";
@@ -1083,7 +1091,7 @@ body {
 		}
 
 		&:hover {
-			background: #00c6ff;
+			background: #0ab1ff;
 			border-color: #00c6ff;
 		}
 	}

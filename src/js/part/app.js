@@ -6,7 +6,8 @@ $(document).ready(function() {
     	nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',
     	pagination: '.swiper-pagination',
-        paginationClickable: true
+        paginationClickable: true,
+        mousewheelControl: true
     });
 
     var typeSlider = new Swiper('.type-slider', {
@@ -17,7 +18,8 @@ $(document).ready(function() {
     	nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',
     	pagination: '.swiper-pagination',
-        paginationClickable: true
+        paginationClickable: true,
+        mousewheelControl: true
     });
 
     if ( $('.type-slider').length > 0 ) {
@@ -33,6 +35,7 @@ $(document).ready(function() {
         spaceBetween: 10,
         loop: false,
         slidesOffsetBefore: 10,
+        mousewheelControl: true,
         nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',
         pagination: '.swiper-pagination',
@@ -77,6 +80,7 @@ $(document).ready(function() {
         paginationClickable: true,
         touchRatio: 0,
         initialSlide: 1,
+        mousewheelControl: true,
         breakpoints: {
         	760: {
 		      touchRatio: 1
@@ -106,6 +110,7 @@ $(document).ready(function() {
 	    		$('.panel-one').removeClass('open');
 	    		$(this).toggleClass('open');
 	    		$('.panel-overlay').fadeIn();
+                $('.swiper-button-next, .swiper-button-prev').hide();
 
 	    		var profile = new Swiper('.panel-slider-wrap', {
 			    	slidesPerView: 'auto',
@@ -147,6 +152,7 @@ $(document).ready(function() {
 	    $('.panel-close').on('click', function() {
 	    	$(this).parents('.panel-one').removeClass('open');
 	    	$('.panel-overlay').fadeOut();
+            $('.swiper-button-next, .swiper-button-prev').show();
 	    	return false;
 	    });
 	    
