@@ -10,11 +10,13 @@ $(document).ready(function() {
         mousewheelControl: true
     });
 
+
+
     var typeSlider = new Swiper('.type-slider', {
     	slidesPerView: 1,
     	spaceBetween: 0,
         loop: false,
-        initialSlide: 1,
+        initialSlide: slideIndex,
     	nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',
     	pagination: '.swiper-pagination',
@@ -70,6 +72,8 @@ $(document).ready(function() {
     	$('.catalog-slide__title').animate({'bottom':'100px'}, 300);
     });
 
+    var slideIndex = $('.slide--active').index();
+
     var catalogSlider = new Swiper('.catalog-slider', {
     	slidesPerView: 1,
     	spaceBetween: 0,
@@ -79,7 +83,7 @@ $(document).ready(function() {
     	pagination: '.swiper-pagination',
         paginationClickable: true,
         touchRatio: 0,
-        initialSlide: 1,
+        initialSlide: slideIndex,
         mousewheelControl: true,
         breakpoints: {
         	760: {
@@ -201,5 +205,14 @@ $(document).ready(function() {
     });
 
     $('input[name="phone"]').mask("+7(999) 999-99-99",{placeholder:"_"});
+
+    $('.popup-open').magnificPopup({
+        type: 'image',
+        closeOnContentClick: true,
+        mainClass: 'mfp-img-mobile',
+        image: {
+            verticalFit: true
+        }
+    });
 
 });
