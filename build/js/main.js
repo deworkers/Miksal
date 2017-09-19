@@ -330,4 +330,8 @@ $(document).ready(function() {
         }
     });
 
+    $('.ajax-html').magnificPopup({
+        type: 'ajax'
+    });
+
 });

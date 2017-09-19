@@ -714,6 +714,7 @@ body {
 	top: 20px;
 	font-size: 11px;
 	font-weight: 300;
+	z-index: 10;
 
 	&:after {
 		content: "";
@@ -1275,15 +1276,9 @@ body {
 	
 }
 
-.panel-one--fourth {
-	width: 25%;
-}
-
-.panel-one--half {
-	width: 50%;
-}
 
 .about-one {
+	width: 16.66%;
 	height: 100%;
     float: left;
     padding: 30px 40px;
@@ -1293,6 +1288,52 @@ body {
     &.active {
     	background: rgba(80,86,96,.6);
     }
+}
+
+.about-one--partner {
+	width: 33.33%;
+    background-image: url(../tmp/contact.jpg);
+    background-size: cover;
+}
+
+.catalog-bottom--contact {
+	height: 370px;
+}
+
+.contact-descr {
+	font-size: 14px;
+	color: #fff;
+
+	p {
+		font-size: 12px;
+		line-height: 16px;
+		margin-bottom: 10px;
+		color: #fff;
+	}
+
+	a {
+		color: #fff;
+	}
+}
+
+.contact-title {
+	font-size: 14px;
+	height: 90px;
+	color: #fff;
+	font-weight: 700;
+}
+
+.contact-descr__metro {
+	font-size: 14px;
+	margin-bottom: 10px;
+}
+
+.panel-one--fourth {
+	width: 25%;
+}
+
+.panel-one--half {
+	width: 50%;
 }
 
 .about-title {
@@ -1326,4 +1367,43 @@ body {
     	border-color: #00baff;
     	background: #00baff;
     }
+}
+
+
+.partner {
+	max-height: 300px;
+
+}
+
+.partner-map {
+	width: 67.5%;
+	display: inline-block;
+	background: #ddd;
+	height: 300px;
+}
+
+.partner-list {
+	width: 32%;
+	display: inline-block;
+	overflow-y: scroll;
+	height: 280px;
+	padding-left: 20px;
+
+	ul {
+		list-style: none;
+		padding: 0;
+	}
+
+	li {
+		font-size: 12px;
+		margin-bottom: 10px;
+	}
+}
+
+
+.schem-block {
+	max-width: 1000px;
+	background: #fff;
+	padding: 30px 20px;
+	margin: 0 auto;
 }
