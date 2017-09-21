@@ -31,7 +31,7 @@ $(document).ready(function() {
         });
     }
 
-
+    var slideIndex = $('.slide--active').index();
 
     var typeSlider = new Swiper('.type-slider', {
     	slidesPerView: 1,
@@ -93,7 +93,6 @@ $(document).ready(function() {
     	$('.catalog-slide__title').animate({'bottom':'100px'}, 300);
     });
 
-    var slideIndex = $('.slide--active').index();
 
     var catalogSlider = new Swiper('.catalog-slider', {
     	slidesPerView: 1,

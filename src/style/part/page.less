@@ -1288,6 +1288,18 @@ body {
     &.active {
     	background: rgba(80,86,96,.6);
     }
+
+    &.open {
+    	.contact-title {
+			color: #3f434a;
+    	}
+
+    	.contact-descr {
+    		p {
+				color: #3f434a;
+    		}
+    	}
+    }
 }
 
 .about-one--partner {
@@ -1297,7 +1309,7 @@ body {
 }
 
 .catalog-bottom--contact {
-	height: 370px;
+	height: 230px;
 }
 
 .contact-descr {
@@ -1371,22 +1383,21 @@ body {
 
 
 .partner {
-	max-height: 300px;
-
+	padding-top: 30px;
 }
 
 .partner-map {
 	width: 67.5%;
 	display: inline-block;
 	background: #ddd;
-	height: 300px;
+	height: ~'calc(100vh - 540px)';
 }
 
 .partner-list {
 	width: 32%;
 	display: inline-block;
 	overflow-y: scroll;
-	height: 280px;
+	height: ~'calc(100vh - 530px)';
 	padding-left: 20px;
 
 	ul {
@@ -1406,4 +1417,47 @@ body {
 	background: #fff;
 	padding: 30px 20px;
 	margin: 0 auto;
+	//height: 100vh;
+	//overflow-y: scroll;
+}
+
+.panel-inn--contact {
+	max-height: ~'calc(100vh - 450px)';
+	overflow: auto;
+}
+
+.contact-block {
+	padding-top: 40px;
+
+	h2 {
+
+	}
+
+	h3 {
+
+	}
+
+	p {
+		font-size: 16px;
+		margin-bottom: 15px;
+	}
+}
+
+.contact-map {
+	margin-top: 30px;
+	img {
+		display: inline-block;
+		vertical-align: top;
+		width: 48%;
+		margin-right: 1%;
+	}
+}
+
+.contact-mobile {
+	display: none;
+}
+
+.contact {
+	height: 100vh;
+	background-size: cover;
 }
