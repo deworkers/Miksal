@@ -236,15 +236,33 @@ $(document).ready(function() {
 			        loop: false,
 			    	nextButton: '.panel-slider-next',
 			        prevButton: '.panel-slider-prev',
+                    mousewheelControl: true
 			    });
 
 			    var furniture = new Swiper('.furniture-slider', {
-			    	slidesPerView: 5,
+			    	slidesPerView: 'auto',
 			    	spaceBetween: 40,
 			        loop: false,
 			    	nextButton: '.panel-carusel-next',
 			        prevButton: '.panel-carusel-prev',
+                    mousewheelControl: true
 			    });
+
+                var subimage = new Swiper('.furniture-subimage', {
+                    slidesPerView: 3,
+                    spaceBetween: 5,
+                    loop: false,
+                    mousewheelControl: true
+                });
+
+                var variant = new Swiper('.variant-slider', {
+                    slidesPerView: 'auto',
+                    spaceBetween: 40,
+                    loop: false,
+                    nextButton: '.panel-carusel-next',
+                    prevButton: '.panel-carusel-prev',
+                    mousewheelControl: true
+                });
 
 			    var gallery = new Swiper('.gallery', {
 			        slidesPerView: 'auto',
@@ -254,6 +272,7 @@ $(document).ready(function() {
 			        prevButton: '.panel-carusel-prev',
 			        pagination: '.gallery-pagination',
 			        paginationClickable: true,
+                    mousewheelControl: true
 			    });
 
 			    var gallery2 = new Swiper('.gallery-2', {
@@ -263,6 +282,7 @@ $(document).ready(function() {
 			    	nextButton: '.panel-carusel-next',
 			        prevButton: '.panel-carusel-prev',
 			        pagination: '.gallery2-pagination',
+                    mousewheelControl: true
 			    });
 	    	}
 	    }); 

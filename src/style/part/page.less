@@ -381,7 +381,7 @@ body {
 	float: left;
 	height: 100%;
 	color: #fff;
-	padding: 20px 30px;
+	padding: 20px 25px;
 }
 
 .order-title {
@@ -391,7 +391,7 @@ body {
 }
 
 .order-price {
-	font-size: 28px;
+	font-size: 24px;
 	font-weight: 300;
 }
 
@@ -419,6 +419,7 @@ body {
 	color: #fff;
 	padding-top: 120px;
 	max-width: 400px;
+	text-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
 
 	span {
 		font-size: 20px;
@@ -566,7 +567,6 @@ body {
 }
 
 .panel-one--interier {
-	width: 33.33%;
 	background-image: url(../tmp/interier.jpg);
 	background-size: cover;
 }
@@ -817,6 +817,28 @@ body {
 	max-width: ~'calc( 100% - 130px )';
 
 	.swiper-slide {
+		width: 160px;
+		img {
+			width: 100%;
+			border: 2px solid #bac4cf;
+			margin-bottom: 10px;
+		}
+	}
+}
+
+.furniture-subimage {
+	overflow: hidden;
+	img {
+		width: 100%;
+	}
+}
+
+.variant-slider {
+	overflow: hidden;
+	max-width: ~'calc( 100% - 130px )';
+
+	.swiper-slide {
+		width: 120px;
 		img {
 			border: 2px solid #bac4cf;
 			margin-bottom: 10px;
@@ -1466,4 +1488,18 @@ body {
 
 .catalog-slide__title--contact {
 	padding: 120px 30px 0;
+}
+
+.select-type {
+	color: #fff;
+	position: absolute;
+	text-decoration: none;
+	bottom: 250px;
+	right: 30px;
+	padding: 20px;
+	border: 2px solid #fff;
+
+	&:hover {
+		background: rgba(0, 0, 0, 0.1);
+	}
 }
