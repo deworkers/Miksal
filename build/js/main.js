@@ -147,12 +147,11 @@ $(document).ready(function() {
     }
 
     var listSlider = new Swiper('.list-slider', {
-        slidesPerView: 2,
-        slidesPerColumn: 2,
-        spaceBetween: 10,
+        slidesPerView: 1,
+        spaceBetween: 0,
         loop: false,
-        slidesOffsetBefore: 10,
         mousewheelControl: true,
+        initialSlide: slideIndex,
         nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',
         pagination: '.swiper-pagination',
@@ -164,8 +163,14 @@ $(document).ready(function() {
                 spaceBetween: 0,
             }
         }
-
     });
+
+    if ( $('.list-slider').length > 0 ) {
+        listSlider.on('slideChangeEnd', function () {
+            var url = $('.list-slider').find('.list-slide').eq(listSlider.activeIndex).data('url');
+            $(location).attr('href',url);
+        });
+    }
 
     /*if ( $('.main-slider').length > 0 ) {
 	    if ( $(window).width() <= 768 ) {
@@ -352,5 +357,10 @@ $(document).ready(function() {
     $('.ajax-html').magnificPopup({
         type: 'ajax'
     });
+
+    $('.hide-elem').on('click', function() {
+        $('body').toggleClass('hide-elems');
+    });
+
 
 });
