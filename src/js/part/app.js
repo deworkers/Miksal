@@ -195,6 +195,16 @@ $(document).ready(function() {
 			        pagination: '.gallery2-pagination',
                     mousewheelControl: true
 			    });
+
+                var contact = new Swiper('.contact-gallery', {
+                    slidesPerView: 1,
+                    spaceBetween: 10,
+                    loop: false,
+                    nextButton: '.swiper-button-next',
+                    prevButton: '.swiper-button-prev',
+                    paginationClickable: true,
+                    mousewheelControl: true
+                });
 	    	}
 	    }); 
 
@@ -234,7 +244,29 @@ $(document).ready(function() {
             },
         },
         submitHandler: function() {
-            $('.modal-form').html('<h2>Спасибо за заказ</h2>')
+            $("#order-form").parents('.modal-form').html('<h2>Спасибо за заказ</h2>')
+        }
+    });
+
+    $("#order-photo").validate({
+        rules:{
+            name:{
+                required: true
+            },
+            phone:{
+                required: true,
+            },
+        },
+        messages:{
+            name:{
+                required: "Это поле обязательно для заполнения",
+            },
+            phone:{
+                required: "Это поле обязательно для заполнения",
+            },
+        },
+        submitHandler: function() {
+            $('#order-photo').parents('.modal-form').html('<h2>Спасибо за заказ</h2>')
         }
     });
 
@@ -266,6 +298,18 @@ $(document).ready(function() {
 
     $('.hide-elem').on('click', function() {
         $('body').toggleClass('hide-elems');
+    });
+
+    $('.get-img').on('click', function() {
+        var imgUrl = $(this).data('img');
+        style = 'background-image: url('+ imgUrl +')';
+        $('.put-img').attr('style', style);
+    });
+
+    $('.get-gallImg').on('click', function() {
+        var imgUrl = $(this).find('img').attr('src');
+        style = 'background-image: url('+ imgUrl +')';
+        $('.put-img').attr('style', style);
     });
 
 
