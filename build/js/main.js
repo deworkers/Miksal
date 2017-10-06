@@ -406,5 +406,23 @@ $(document).ready(function() {
         $('.put-img').attr('style', style);
     });
 
+    $('.furniture-subimage').magnificPopup({
+        delegate: 'a',
+        type: 'image',
+        mainClass: 'mfp-img-mobile',
+        gallery: {
+            tCounter: '<span class="mfp-counter">%curr% из %total%</span>',
+            tLoading: 'Загрузку изображения #%curr%...',
+            enabled: true,
+            navigateByImgClick: true,
+            preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+        },
+        image: {
+            titleSrc: function(item) {
+                return item.el.attr('title');
+            }
+        }
+    });
+
 
 });
