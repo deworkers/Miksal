@@ -160,7 +160,7 @@ $(document).ready(function() {
 			    });
 
                 var subimage = new Swiper('.furniture-subimage', {
-                    slidesPerView: '3',
+                    slidesPerView: 3,
                     spaceBetween: 5,
                     loop: false,
                     mousewheelControl: true
@@ -301,6 +301,14 @@ $(document).ready(function() {
         $('body').toggleClass('hide-elems');
     });
 
+    $('.catalog-slide-inn').click(function(event) {
+        event.stopPropagation();
+        if ( $(event.target).attr('class') == 'catalog-slide-inn' ) {
+            $('body').toggleClass('hide-elems');
+        }
+        
+    });
+
     $('.show-elem .panel-close').on('click', function() {
         $('body').removeClass('hide-elems');
     });
@@ -315,6 +323,24 @@ $(document).ready(function() {
         var imgUrl = $(this).find('img').attr('src');
         style = 'background-image: url('+ imgUrl +')';
         $('.put-img').attr('style', style);
+    });
+
+    $('.furniture-subimage').magnificPopup({
+        delegate: 'a',
+        type: 'image',
+        mainClass: 'mfp-img-mobile',
+        gallery: {
+            tCounter: '<span class="mfp-counter">%curr% из %total%</span>',
+            tLoading: 'Загрузку изображения #%curr%...',
+            enabled: true,
+            navigateByImgClick: true,
+            preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+        },
+        image: {
+            titleSrc: function(item) {
+                return item.el.attr('title');
+            }
+        }
     });
 
 
