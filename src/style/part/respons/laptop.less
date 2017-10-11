@@ -35,6 +35,48 @@
 			margin-bottom: 5px;
 		}
 	}
-	
+}
 
+@media screen and (max-height: 760px) {
+	
+	.panel-slider-inn {
+		width: auto;
+		overflow: hidden;
+	}
+
+	.furniture-slider {
+		.swiper-slide {
+			width: 320px;
+			padding-left: 160px;
+			height: 400px;
+
+			img {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 140px;
+			}
+		}
+	}
+
+	.furniture-subimage {
+		position: absolute;
+		width: 160px;
+		left: 0;
+
+		.swiper-slide {
+			padding-left: 0;
+			img {
+				width: 50px;
+			}
+		}
+
+	}
+
+	.gallery,
+	.gallery-2 {
+		.swiper-slide {
+			height: ~'calc(100vh - 380px)';
+		}
+	}
 }

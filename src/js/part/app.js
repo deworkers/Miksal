@@ -160,7 +160,7 @@ $(document).ready(function() {
 			    });
 
                 var subimage = new Swiper('.furniture-subimage', {
-                    slidesPerView: 3,
+                    slidesPerView: '3',
                     spaceBetween: 5,
                     loop: false,
                     mousewheelControl: true
@@ -223,6 +223,7 @@ $(document).ready(function() {
 	    if( e.keyCode === 27 ) {
 	        $('.panel-one').removeClass('open');
 	    	$('.panel-overlay').fadeOut();
+            $('body').removeClass('hide-elems');
 	    }
 	});
 
@@ -298,6 +299,10 @@ $(document).ready(function() {
 
     $('.hide-elem').on('click', function() {
         $('body').toggleClass('hide-elems');
+    });
+
+    $('.show-elem .panel-close').on('click', function() {
+        $('body').removeClass('hide-elems');
     });
 
     $('.get-img').on('click', function() {
