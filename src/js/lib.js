@@ -9,3 +9,4 @@
 //= ../plugin/jquery.maskedinput.min.js
 //= ../plugin/magnific-popup/jquery.magnific-popup.min.js
 //= ../plugin/jquery.mousewheel.min.js
+

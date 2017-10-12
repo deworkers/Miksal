@@ -215,9 +215,15 @@ $(document).ready(function() {
 
     if ( $('.catalog-slider').length > 0 ) {
 	    catalogSlider.on('slideChangeEnd', function () {
-	    	console.log(catalogSlider.activeIndex);
 	    	var url = $('.catalog-slider').find('.catalog-slide').eq(catalogSlider.activeIndex).data('url');
-	    	$(location).attr('href',url);
+            if ( location.hash == "#hidden" ) {
+                url =url + location.hash;
+	    	    window.location = url;
+                location.reload();
+            } else {
+                window.location = url;
+            }
+
 		});
 
 		catalogSlider.on('slideChangeStart', function() {
@@ -317,11 +323,11 @@ $(document).ready(function() {
 	    if( e.keyCode === 27 ) {
 	        $('.panel-one').removeClass('open');
 	    	$('.panel-overlay').fadeOut();
-            $('body').removeClass('hide-elems');
 	    }
 	});
 
-	$("#order-form").validate({
+
+    $("#order-form").validate({
         rules:{
             name:{
                 required: true
@@ -391,21 +397,44 @@ $(document).ready(function() {
         type: 'ajax'
     });
 
+
+    $(document).keydown(function(e) {
+        if( e.keyCode === 27 ) {
+            $('body').removeClass('hide-elems');
+            location.hash = '';
+        }
+    });
+
     $('.hide-elem').on('click', function() {
         $('body').toggleClass('hide-elems');
+        location.hash = 'hidden'
     });
 
     $('.catalog-slide-inn').click(function(event) {
+        location.hash = '';
         event.stopPropagation();
         if ( $(event.target).attr('class') == 'catalog-slide-inn' ) {
-            $('body').toggleClass('hide-elems');
+            if ( $('body').hasClass('hide-elems') ) {
+                $('body').toggleClass('hide-elems');
+                location.hash = '';
+            } else {
+                $('body').toggleClass('hide-elems');
+                location.hash = 'hidden';
+            }
         }
         
     });
 
     $('.show-elem .panel-close').on('click', function() {
+        location.hash = '';
         $('body').removeClass('hide-elems');
     });
+
+
+    if ( location.hash == '#hidden' ) {
+        $('body').addClass('hide-elems');
+    }
+
 
     $('.get-img').on('click', function() {
         var imgUrl = $(this).data('img');
