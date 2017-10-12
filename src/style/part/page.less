@@ -485,6 +485,17 @@ body {
 	}
 }
 
+.parametrs--radius {
+	text-decoration: none;
+	position: relative;
+	&:before {
+		.sprite(@radius);
+		top: 0px;
+		left: 0px;
+		transform: scale(1);
+	}
+}
+
 .catalog-bottom {
 	width: ~'calc(100% - 60px)';
 	position: absolute;
@@ -521,6 +532,8 @@ body {
 		.panel-inn {
 			display: block;
 			z-index: 110;
+			max-height: ~'calc(100vh - 310px)';
+			overflow: scroll;
 		}
 	}
 
@@ -1526,7 +1539,7 @@ body {
 	overflow: hidden;
 
 	.swiper-slide {
-		height: 400px;
+		height: 280px;
 		width: 100%;
 		background-size: cover;
 		background-position: center center;
@@ -1614,6 +1627,22 @@ body {
 	}
 }
 
+.show-elem {
+	position: absolute;
+	top: 15px;
+	right: 310px;
+	width: 140px;
+	display: none;
+	z-index: 1000;
+
+	.panel-close {
+		color: #fff;
+		&:after {
+			.sprite(@modal-close);
+		}
+	}
+}
+
 .hide-elems {
 	.catalog-slide__title,
 	.parametrs,
@@ -1621,8 +1650,13 @@ body {
 	.select-type,
 	.head-left,
 	.menu-top,
-	.menu-prod {
+	.menu-prod,
+	.hide-elem {
 		display: none;
+	}
+
+	.show-elem {
+		display: block;
 	}
 
 	.head {
