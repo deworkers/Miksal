@@ -121,11 +121,14 @@ $(document).ready(function() {
 
     if ( $('.catalog-slider').length > 0 ) {
 	    catalogSlider.on('slideChangeEnd', function () {
-	    	var url = $('.catalog-slider').find('.catalog-slide').eq(catalogSlider.activeIndex).data('url');
+            var url = $('.catalog-slider').find('.catalog-slide').eq(catalogSlider.activeIndex).data('url');
             if ( location.hash == "#hidden" ) {
+                console.log(url);
                 url =url + location.hash;
 	    	    window.location = url;
-                location.reload();
+                setTimeout(function() {
+                    location.reload();
+                }, 100);
             } else {
                 window.location = url;
             }
@@ -349,12 +352,11 @@ $(document).ready(function() {
     });
 
     $('.get-gallImg').on('click', function() {
-        var imgUrl = $(this).find('img').attr('src');
-        style = 'background-image: url('+ imgUrl +')';
-        $('.put-img').attr('style', style);
+        var imgUrl = $(this).data('img');
+        $('.put-img').attr('src', imgUrl);
     });
 
-    $('.furniture-subimage').magnificPopup({
+    $('.furniture-slider .swiper-slide').magnificPopup({
         delegate: 'a',
         type: 'image',
         mainClass: 'mfp-img-mobile',
