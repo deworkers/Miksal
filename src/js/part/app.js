@@ -124,11 +124,11 @@ $(document).ready(function() {
             var url = $('.catalog-slider').find('.catalog-slide').eq(catalogSlider.activeIndex).data('url');
             if ( location.hash == "#hidden" ) {
                 console.log(url);
-                url =url + location.hash;
-	    	    window.location = url;
+                //url =url + location.hash;
+	    	    window.location = url + location.hash;
                 setTimeout(function() {
                     location.reload();
-                }, 100);
+                }, 10);
             } else {
                 window.location = url;
             }
@@ -230,8 +230,14 @@ $(document).ready(function() {
 
     $(document).keydown(function(e) {
 	    if( e.keyCode === 27 ) {
-	        $('.panel-one').removeClass('open');
-	    	$('.panel-overlay').fadeOut();
+            if ( $('body').hasClass('j-noScroll') ) {
+                $('.modal').fadeOut();
+                $('#overlay').fadeOut();
+                $('body').removeClass('j-noScroll');
+            } else {
+	            $('.panel-one').removeClass('open');
+	    	    $('.panel-overlay').fadeOut();
+            }
 	    }
 	});
 
