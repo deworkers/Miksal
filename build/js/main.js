@@ -222,7 +222,7 @@ $(document).ready(function() {
 	    	    window.location = url + location.hash;
                 setTimeout(function() {
                     location.reload();
-                }, 10);
+                }, 500);
             } else {
                 window.location = url;
             }
