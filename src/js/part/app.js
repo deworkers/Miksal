@@ -223,6 +223,15 @@ $(document).ready(function() {
             $('.swiper-button-next, .swiper-button-prev').show();
 	    	return false;
 	    });
+
+        $('.panel-overlay div').on('click', function(event) {
+            event.stopPropagation();
+        });
+
+        $('.panel-overlay').on('click', function(event) {
+            $('.panel-overlay').fadeOut();
+            $('.panel-one').removeClass('open');
+        });
 	    
     }
 
